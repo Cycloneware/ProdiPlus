@@ -5,6 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mods - ProdiPlus</title>
     <link rel="stylesheet" href="styles.css">
+    <script>
+        function submitMods(version) {
+            const checkboxes = document.querySelectorAll(`input[name="mod"]:checked`);
+            const mods = Array.from(checkboxes).map(checkbox => checkbox.value).join(',');
+            const url = `play_${version}.html?mods=${mods}`;
+            window.location.href = url;
+        }
+    </script>
 </head>
 <body>
     <header>
@@ -29,36 +37,33 @@
 
         <section class="mod-options">
             <h3>Version 1.22.1</h3>
-            <form action="play_v122.html" method="GET">
-                <div class="mod-item">
-                    <label>
-                        <input type="checkbox" name="mod" value="walk_speed">
-                        Walk Speed
-                    </label>
-                </div>
-                <div class="mod-item">
-                    <label>
-                        <input type="checkbox" name="mod" value="fast_game_speed">
-                        Fast Game Speed
-                    </label>
-                </div>
-                <div class="mod-item">
-                    <label>
-                        <input type="checkbox" name="mod" value="classic_faces">
-                        Classic Faces
-                    </label>
-                </div>
-                <div class="mod-item">
-                    <label>
-                        <input type="checkbox" name="mod" value="classic_faces_boys">
-                        Classic Faces for Boys
-                    </label>
-                </div>
-                <button type="submit" class="button">Play with Mods</button>
-            </form>
+            <div class="mod-item">
+                <label>
+                    <input type="checkbox" name="mod" value="walk_speed">
+                    Walk Speed
+                </label>
+            </div>
+            <div class="mod-item">
+                <label>
+                    <input type="checkbox" name="mod" value="fast_game_speed">
+                    Fast Game Speed
+                </label>
+            </div>
+            <div class="mod-item">
+                <label>
+                    <input type="checkbox" name="mod" value="classic_faces">
+                    Classic Faces
+                </label>
+            </div>
+            <div class="mod-item">
+                <label>
+                    <input type="checkbox" name="mod" value="classic_faces_boys">
+                    Classic Faces for Boys
+                </label>
+            </div>
+            <button type="button" class="button" onclick="submitMods('v122')">Play with Mods</button>
         </section>
 
-        <!-- Placeholder for other versions -->
         <section class="mod-options">
             <h3>Version 1.50.0</h3>
             <p>Mods for this version are coming soon!</p>
